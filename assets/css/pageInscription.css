@@ -1,0 +1,67 @@
+* {
+    padding : 0;
+    border : 0;
+    margin : 0;
+}
+
+.BlockFond {
+    margin-top: 4rem;
+    height: 38rem;
+    width: 100%;
+    background-color: rgb(113, 172, 113);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BlockMain {
+    height: 30rem;
+    width: 40%;
+    background-color: rgb(200, 200, 200);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+input {
+    height: 1.5rem;
+    width: 15rem;
+    border-radius: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.endButton {
+    padding: 0.2rem 1.5rem;
+    background-color: rgb(0, 168, 0);
+}

@@ -1,0 +1,12 @@
+Projet Infra et Dev : sujet libre.
+API, Base de donnée, Serveurs (Web, Base de donnée, ...), DNS/DHCP, Pare-feu.
+
+Par groupes de 2 : avec Antoine.
+
+Si j'ai bien compris le projet: ils veulent une application (sujet libre) avec une API et base de donnée, avec des serveurs (+ DNS/DHCP) avec pare-feu? 
+
+Evaluées sur les recherches et fonctionnalités ajoutées.
+
+Rendu : App + Documentation technique + GitHub.
+
+Questions: Teams -> Mokri Rayane

@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+
+/* Nav */
+
+.content{
+    background-color: #03c2007b;
+}
+
+/* Main */
+
+/* change logo */
+.custom-file-label {
+    cursor: pointer;
+}
+
+.logo{
+    margin-left: 20%;
+}
+
+.logo img{
+    width: 15%;
+}
+
+.logo label{
+    margin-left: 7% !important; 
+    background-color: transparent; 
+    border-color: transparent; 
+    padding: 0px;
+}
+
+/* form */
+.formulaire{
+    margin-left: 20% !important;
+}
+
+/* Modif MPD */
+.password-toggle {
+    position: relative;
+}
+
+.btnModif{
+    padding: 1rem 4rem !important;
+}
+
+.password-toggle .toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* btn modif */
+.modif{
+    margin-left: 70%; 
+    background-color: #47CEF8 !important;
+}

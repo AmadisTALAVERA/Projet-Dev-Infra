@@ -23,8 +23,8 @@ a{
 .container{
     width: 30%; 
     float: left;
-    max-height: 500px; /* Hauteur maximale du conteneur */
-    overflow-y: scroll; /* Activer la barre de défilement verticale */
+    max-height: 550px; /* Hauteur maximale du conteneur */
+    overflow-x: hidden; /* Activer la barre de défilement verticale */
 }
 
 .title{

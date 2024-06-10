@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 a{
     text-decoration: none;
 
@@ -19,6 +23,8 @@ a{
 .container{
     width: 30%; 
     float: left;
+    max-height: 500px; /* Hauteur maximale du conteneur */
+    overflow-y: scroll; /* Activer la barre de défilement verticale */
 }
 
 .title{
@@ -68,6 +74,7 @@ button{
   --bs-btn-disabled-border-color: #04C200;
 }
 
+
 /* HR */
 
 .main_hr {
@@ -86,6 +93,18 @@ button{
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
 }
+
+
+/* scrollbar */
+
+.container::-webkit-scrollbar{
+    width: 8px;
+}
+  
+.container::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
 
 /* Formulaire  */
 
@@ -120,4 +139,51 @@ button{
 .btn-inactive {
     background-color: #6c757d !important;
     color: white !important;
+}
+
+
+/* CALENDRIER */
+
+#calendar {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 30%;
+    margin-top: 2%;
+}
+
+
+#daysOfWeek {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#daysOfWeek div {
+    width: calc(100% / 7);
+    text-align: center;
+    font-weight: bold;
+}
+
+#calendarBody {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day {
+    width: calc(100% / 7);
+    height: 100px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.day.previous-month, .day.next-month {
+    color: #ccc;
+}
+
+.day:hover {
+    background: #f0f0f0;
 }

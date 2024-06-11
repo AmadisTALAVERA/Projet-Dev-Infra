@@ -162,9 +162,8 @@ button{
 }
 
 .current-day {
-    background-color: lightblue; /* Exemple de couleur de fond pour le jour actuel */
-    font-weight: bold; /* Exemple de mise en évidence du texte */
-    border-radius: 50%; /* Exemple d'arrondi pour mettre en évidence */
+    background-color: lightblue !important;
+    font-weight: bold;
 }
 
 

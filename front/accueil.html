@@ -9,220 +9,183 @@
 </head>
 <body>
 
-    <header>
-        <nav class="p-3 pb-4 content">
-            <div class="ms-3 mt-2 gap-4 d-flex align-items-center">
-                 <div class="d-flex gap-2 me-5 align-items-end">
-                    <img src="assets/img/logo.png" alt="">
-                    <p class="fs-4">MySchedule</p>
-                 </div>
-                <button  id="todayButton" type="button" class="btn btn-light">
-                    Aujourd'hui
-                </button>
-                <div class="d-flex">
-                    <button id="prevButton" type="button" class="btn btn-lightgreen rounded-5 pt-1 fs-4 ms-5" style="border-color: transparent;">
-                        &lt;
-                    </button>
-                    <button id="nextButton" type="button" class="btn btn-lightgreen rounded-5 pt-1 fs-4 me-2" style="border-color: transparent;">
-                        &gt;
-                    </button>  
-                </div>
-                
-                <div>
+  <header>
+      <nav class="p-3 pb-4 content">
+          <div class="ms-3 mt-2 gap-4 d-flex align-items-center">
+              <div class="d-flex gap-2 me-5 align-items-end">
+                  <img src="assets/img/logo.png" alt="">
+                  <p class="fs-4">Mon Agenda</p>
+              </div>
+              <button type="button" class="btn btn-light" id="todayButton">Aujourd'hui</button>
+              <div class="d-flex">
+                  <button type="button" class="btn btn-lightgreen rounded-5 pt-1 fs-4 ms-5" id="prevButton" style="border-color: transparent;">&lt;</button>
+                  <button type="button" class="btn btn-lightgreen rounded-5 pt-1 fs-4 me-2" id="nextButton" style="border-color: transparent;">&gt;</button>
+              </div>
+              <div>
                   <p id="currentDate" class="bg-light py-2 px-4 rounded-3 m-0"></p>
-                </div>
-                 
-
-                <div class="btn-group ms-auto">
-                  <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Semaine
+              </div>
+              <div class="btn-group ms-auto">
+                  <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="viewSelector">
+                      Semaine
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Jour</a></li>
-                    <li><a class="dropdown-item" href="#">Semaine</a></li>
-                    <li><a class="dropdown-item" href="#">Mois</a></li>
-                    <li><a class="dropdown-item" href="#">Année</a></li>
-                    <li><a class="dropdown-item" href="#">Planning</a></li>
-                    <li><a class="dropdown-item" href="#">4 jours</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item ps-5" href="#">Afficher les week-ends</a></li>
-                    <li><a class="dropdown-item ps-5" href="#">Afficher les événements refusé</a></li>
-                    <li><a class="dropdown-item ps-5" href="#">Afficher les tâches terminées</a></li>
-                    <li><a class="dropdown-item ps-5" href="#">Afficher les plannings de rendez-vous</a></li>
+                      <li><a class="dropdown-item" href="#" data-view="jour">Jour</a></li>
+                      <li><a class="dropdown-item" href="#" data-view="semaine">Semaine</a></li>
+                      <li><a class="dropdown-item" href="#" data-view="mois">Mois</a></li>
+                      <li><a class="dropdown-item" href="#" data-view="année">Année</a></li>
                   </ul>
-                </div>
-
-                <div class="dropdown ms-auto">
-                    <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              </div>
+              
+              <div class="dropdown ms-auto">
+                  <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="assets/img/logo account.png" alt="">
-                    </button>
-                    <ul class="dropdown-menu">
+                  </button>
+                  <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="compte.html">Mon Compte</a></li>
                       <li><a class="dropdown-item" href="#">Changer de compte</a></li>
-                      <li><a class="dropdown-item" href="deconnexion.html">Déconneion</a></li>
-                    </ul>
-                  </div>
-
-                 
-            </div>
-        </nav>
-    </header>
-
-    <main>
-      <div class="container mt-4 w-25 overflow-y-scroll">
-        <div>
-            <form action="post">
-              <input class="form-control form-control-lg ms-auto" type="text" placeholder="Ajouter un titre" aria-label=".form-control-lg example">
-            </form>
-        </div>
-        <div class="d-flex gap-3 mb-4 mt-5 justify-content-center">
-            <button id="button1" class="btn btn-active">Evenement</button>
-            <button id="button2" class="btn btn-inactive">Tâche</button>
-        </div>
-
-        <div id="form1" class="form-container active ms-2">
-            <form action="post">
-                <div class="mb-3 d-flex align-items-center gap-2">
-                    <img class="h-25" src="assets/img/logo horloge.png" alt="">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Date" aria-label="Date">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de début" aria-label="Heure de début">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de fin" aria-label="Heure de fin">
-                </div>
-                <div class="form-check ms-5 mt-4">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Toute la journée
-                    </label>
-                </div>
-
-                <div class="btn-group ms-5 mt-4 mb-4">
-                  <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Une seul fois
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Une seul fois</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les jours</a></li>
-                    <li><a class="dropdown-item" href="#">Toute les semaines le jeudi</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les mois les derniers jeudi</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les ans le 30 mai</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les jours de la semaine (du lundi au vendredi)</a></li>
+                      <li><a class="dropdown-item" href="deconnexion.html">Déconnexion</a></li>
                   </ul>
-                </div>
-                <hr class="main_hr">
-                
-                <div class="mb-3 d-flex align-items-center gap-2 mt-4">
-                    <img class="h-25" src="assets/img/logo invite.png" alt="">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter des invités" aria-label="Ajouter des invités">
-                </div>
-                <div class="mb-3 d-flex align-items-center gap-2">
-                    <img class="h-25" src="assets/img/logo lieux.png" alt="">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter un lieux" aria-label="Ajouter un lieux">
-                </div>
-                <div class="mb-4 d-flex align-items-center gap-2">
-                    <img class="h-25" src="assets/img/logo description.png" alt="">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter une description" aria-label="Ajouter une description">
-                </div>
-
-                <hr class="main_hr">
-
-                <div class="d-flex align-items-center">
-                    <div class="d-flex align-items-center gap-2">
-                        <img class="mt-3" src="assets/img/logo calendrier.png" alt="">
-                        <div class="btn-group mt-3">
-                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                              Organisateur
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Organisateur</a></li>
-                              <li><a class="dropdown-item" href="#">Organisateur</a></li>
-                              <li><a class="dropdown-item" href="#">Organisateur</a></li>
-                              <li><a class="dropdown-item" href="#">Organisateur</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="input-group d-flex justify-content-end me-5 mt-3 ">
-                        <input type="color" class="form-control-color inputColor btn" id="colorPicker" value="#563d7c" title="Choisissez votre couleur">
-                        <div class="color-preview rounded-5" id="colorPreview"></div>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-column align-items-start gap-2">
-                  <div>
-                    <img class="h-25 mt-3" src="assets/img/logo notifcations.png" alt="">
-                    <div class="btn-group mt-3">
-                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                          30 minutes avant
-                        </button>
-                        <img src="assets/img/croix.png" alt="Croix" class="ms-2 mt-2" style="cursor: pointer; width: 10%; height: 10%;" onclick="removeNotification()">
-
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">5 minutes avant</a></li>
-                          <li><a class="dropdown-item" href="#">10 minutes avant</a></li>
-                          <li><a class="dropdown-item" href="#">15 minutes avant</a></li>
-                          <li><a class="dropdown-item" href="#">30 minutes avant</a></li>
-                          <li><a class="dropdown-item" href="#">1 heure avant</a></li>
-                          <li><a class="dropdown-item" href="#">1 jour avant</a></li>                          
-                        </ul>
-                    </div>
+              </div>
+          </div>
+      </nav>
+  </header>
+  
+  <main>
+      <div class="container mt-5 w-25">
+          <div>
+              <form action="post">
+                  <input class="form-control form-control-lg ms-auto" type="text" placeholder="Ajouter un titre" aria-label=".form-control-lg example">
+              </form>
+          </div>
+          <div class="d-flex gap-3 mb-4 mt-5 justify-content-center">
+              <button id="button1" class="btn btn-active">Evenement</button>
+              <button id="button2" class="btn btn-inactive">Tâche</button>
+          </div>
+        
+          <div id="form1" class="form-container active ms-2">
+              <form action="post">
+                  <div class="mb-3 d-flex align-items-center gap-2">
+                      <img class="h-25" src="assets/img/logo horloge.png" alt="">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Date" aria-label="Date">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de début" aria-label="Heure de début">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de fin" aria-label="Heure de fin">
                   </div>
-                    
-                  <button type="button" class="mb-3 btn btn-light" aria-expanded="false">
-                    Ajouter une notification
-                  </button>
-                </div>
-
-                <button type="submit" class="btn btn-primary w-50">Enregistrer</button>
-            </form>
-        </div>
-
-        <div id="form2" class="form-container ms-2">
-            <form action="post">
-                <div class="mb-3 d-flex align-items-center gap-2">
-                    <img class="h-25" src="assets/img/logo horloge.png" alt="">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Date" aria-label="Date">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de début" aria-label="Heure de début">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de fin" aria-label="Heure de fin">
-                </div>
-                <div class="form-check ms-5 mt-4">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Toute la journée
-                    </label>
-                </div>
-
-                <div class="btn-group ms-5 mt-4 mb-4">
-                  <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Une seul fois
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Une seul fois</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les jours</a></li>
-                    <li><a class="dropdown-item" href="#">Toute les semaines le jeudi</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les mois les derniers jeudi</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les ans le 30 mai</a></li>
-                    <li><a class="dropdown-item" href="#">Tous les jours de la semaine (du lundi au vendredi)</a></li>
-                  </ul>
-                </div>
-                <hr class="main_hr">
-                
-                <div class="mb-4 d-flex align-items-center gap-2 mt-4">
-                    <img class="h-25" src="assets/img/logo description.png" alt="">
-                    <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter une description" aria-label="Date">
-                </div>
-
-                <button type="submit" class="btn btn-primary w-50">Enregistrer</button>
-            </form>
-        </div>
-    </div>
-    <!-- Agenda -->
-    <div id="calendar">
-        <div class="calendar-header">
-            <div id="daysOfWeek"></div>
-        </div>
-        <div id="calendarBody"></div>
-    </div>
-    </main>
+                  <div class="form-check ms-5 mt-4">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">Toute la journée</label>
+                  </div>
+                  <div class="btn-group ms-5 mt-4 mb-4">
+                      <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Une seule fois</button>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Une seule fois</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les jours</a></li>
+                          <li><a class="dropdown-item" href="#">Toutes les semaines le jeudi</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les mois les derniers jeudi</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les ans le 30 mai</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les jours de la semaine (du lundi au vendredi)</a></li>
+                      </ul>
+                  </div>
+                  <hr class="main_hr">
+                  <div class="mb-3 d-flex align-items-center gap-2 mt-4">
+                      <img class="h-25" src="assets/img/logo invite.png" alt="">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter des invités" aria-label="Ajouter des invités">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center gap-2">
+                      <img class="h-25" src="assets/img/logo lieux.png" alt="">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter un lieu" aria-label="Ajouter un lieu">
+                  </div>
+                  <div class="mb-4 d-flex align-items-center gap-2">
+                      <img class="h-25" src="assets/img/logo description.png" alt="">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter une description" aria-label="Ajouter une description">
+                  </div>
+                  <hr class="main_hr">
+                  <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center gap-2">
+                          <img class="mt-3" src="assets/img/logo calendrier.png" alt="">
+                          <div class="btn-group mt-3">
+                              <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Organisateur</button>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Organisateur</a></li>
+                                  <li><a class="dropdown-item" href="#">Perso</a></li>
+                                  <li><a class="dropdown-item" href="#">Pro</a></li>
+                                  <li><a class="dropdown-item" href="#">Conférence</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="input-group d-flex justify-content-end me-5 mt-3 ">
+                          <input type="color" class="form-control-color inputColor btn" id="colorPicker" value="#563d7c" title="Choisissez votre couleur">
+                          <div class="color-preview rounded-5" id="colorPreview"></div>
+                      </div>
+                  </div>
+                  <div class="d-flex flex-column align-items-start gap-2">
+                      <div>
+                          <img class="h-25 mt-3" src="assets/img/logo notifcations.png" alt="">
+                          <div class="btn-group mt-3">
+                              <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">30 minutes avant</button>
+                              <img src="assets/img/croix.png" alt="Croix" class="ms-2 mt-2" style="cursor: pointer; width: 10%; height: 10%;" onclick="removeNotification()">
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">5 minutes avant</a></li>
+                                  <li><a class="dropdown-item" href="#">10 minutes avant</a></li>
+                                  <li><a class="dropdown-item" href="#">15 minutes avant</a></li>
+                                  <li><a class="dropdown-item" href="#">30 minutes avant</a></li>
+                                  <li><a class="dropdown-item" href="#">1 heure avant</a></li>
+                                  <li><a class="dropdown-item" href="#">1 jour avant</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <button type="button" class="mb-3 btn btn-light" aria-expanded="false">Ajouter une notification</button>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-50">Enregistrer</button>
+              </form>
+          </div>
+          <div id="form2" class="form-container ms-2">
+              <form action="post">
+                  <div class="mb-3 d-flex align-items-center gap-2">
+                      <img class="h-25" src="assets/img/logo horloge.png" alt="">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Date" aria-label="Date">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de début" aria-label="Heure de début">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Heure de fin" aria-label="Heure de fin">
+                  </div>
+                  <div class="form-check ms-5 mt-4">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">Toute la journée</label>
+                  </div>
+                  <div class="btn-group ms-5 mt-4 mb-4">
+                      <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Une seule fois</button>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Une seule fois</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les jours</a></li>
+                          <li><a class="dropdown-item" href="#">Toutes les semaines le jeudi</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les mois les derniers jeudi</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les ans le 30 mai</a></li>
+                          <li><a class="dropdown-item" href="#">Tous les jours de la semaine (du lundi au vendredi)</a></li>
+                      </ul>
+                  </div>
+                  <hr class="main_hr">
+                  <div class="mb-4 d-flex align-items-center gap-2 mt-4">
+                      <img class="h-25" src="assets/img/logo description.png" alt="">
+                      <input class="form-control form-control-lg fs-6" type="text" placeholder="Ajouter une description" aria-label="Ajouter une description">
+                  </div>
+                  <button type="submit" class="btn btn-primary w-50">Enregistrer</button>
+              </form>
+          </div>
+      </div>
+    
+      <div id="calendar">
+          <div class="calendar-header">
+              <!-- <div id="daysOfWeek" class="d-flex justify-content-center gap-4">
+                  <div>Lun</div>
+                  <div>Mar</div>
+                  <div>Mer</div>
+                  <div>Jeu</div>
+                  <div>Ven</div>
+                  <div>Sam</div>
+                  <div>Dim</div>
+              </div> -->
+          </div>
+          <div id="calendarBody"></div>
+      </div>
+  </main>
 
     <script>
       document.getElementById('button1').addEventListener('click', function() {
@@ -252,7 +215,7 @@
       
   </script>
 
-    <script src="assets/js/agenda.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="assets/js/agenda.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -22,3 +22,27 @@ import json
 #     stock_prices[symbol] = price
  
 # print(f"{symbol}: {price}")
+
+import requests
+
+# Définir l'URL de l'API et les en-tête
+# s si nécessaire
+url = "http://10.0.2.15:5500/Projet-Dev-Infra-main/front/index.html"
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN",  # Remplacez par votre jeton d'accès
+    "Content-Type": "application/json"
+}
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    data = response.json()
+    for user in data:
+        print(f"Username: {user['username']}, Password: {user['password']}")
+else:
+    print(f"Erreur: {response.status_code}")
+    print(response.text)
+
+
+# def AfficherEvenement() :
+#     Evenement = "SELECT Id AND Password FROM Evenements"
